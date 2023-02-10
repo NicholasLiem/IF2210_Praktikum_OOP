@@ -45,6 +45,10 @@ Kompleks operator+(const Kompleks& a, const Kompleks&b){
 
 Kompleks operator-(const Kompleks& a, const Kompleks&b){
 	Kompleks c;
+	int A = a.GetReal();
+	int B = a.GetImaginer();
+	int C = b.GetReal();
+	int D = b.GetImaginer();
 	c.SetReal(A-C);
 	c.SetImaginer(B-D);
 	return c;
