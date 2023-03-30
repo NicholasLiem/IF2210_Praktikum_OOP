@@ -13,6 +13,18 @@ public class TempatTinggal {
     public double getHargaBahanBangunan(){
         return hargaBahanBangunan;
     }
+
+    public void setLuas(int lebar, int panjang){
+        this.luas = lebar * panjang;
+    }
+
+    public void setLuas(int luas){
+        this.luas = luas;
+    }
+
+    public void setHargaBahanBangunan(double hargaBahanBangunan){
+        this.hargaBahanBangunan = hargaBahanBangunan;
+    }
 }
 
 class Rumah extends TempatTinggal {
@@ -83,6 +95,10 @@ class Karavan extends TempatTinggal implements Kendaraan{
 
     public double getHargaBahanBangunan() {
         return hargaBahanBangunan;
+    }
+
+    public double hitungBiayaBangun(){
+        return super.hitungBiayaBangun() * 3;
     }
 
     public float hitungJarakTempuh(){
