@@ -1,0 +1,29 @@
+S: 
+- Pemindahan field shoppingCard, 
+- Pemindahan method addProductToShoppingCard, 
+- Pemindahan method removeProductFromShoppingCart, 
+- Pemindahan method calculateShoppingCart
+- Dengan membuat kelas baru misalnya ProductManager supaya memenuhi single responsibility
+
+O:
+- Open-closed principle, sebenarnya bagian PaymentProcessor melanggar
+- Sebab method-method atau fieldnya sudah terdefinisi untuk payment Debit, Credit, dan Cash
+- Sehingga tidak bisa menambah payment-payment baru, sebaiknya payment-payment ini bisa dijadikan
+- Interface-interfacenya sendiri-sendiri, misalnya seperti DebitCardProcessor, dsb.
+- Alternatif lainnya adalah buatlah sebuah kelas Payment yang anak-anaknya adalah DebitCardPayment, dsb
+- Supaya bisa menambah tipe pembayaran yang baru
+
+L:
+- Tidak terjadi pelanggaran Liskov Substituion setiap subproduk dapat melakukan apa yang
+- Parent classnya dapat lakukan secara unique
+
+I: 
+- Sebaiknya setiap product jangan dipaksakan untuk melakukan calculateTax
+- Sebab ini artinya kita mengasumsikan semua produk adalah benda pajak, mungkin saja
+- Ada kemungkinan tidak, sehingga kita bisa pecah calculateTax menjadi interface sendiri
+- Seperti Taxable yang mempunyai method calculateTax() dan product implements Taxable atau masing-masing jenis product yang Taxable
+- Mengimplementasi ini, dan seharusnya menghitung tax bukan tanggung jawab dari product.
+- Hal ini melanggar Interface Segregation.
+
+D:
+- Tidak terjadi pelanggaran dependency inversion
